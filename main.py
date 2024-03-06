@@ -5,7 +5,7 @@ import streamlit as st
 import altair as alt
 
 # importar dados e fazer limpeza
-df = pd.read_csv('amazon_prime_titles.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/Brnlosse/amazon_prime_dataanalysis/main/amazon_prime_titles.csv')
 df.columns = ['id', 'tipo', 'titulo',
               'diretor', 'elenco',
               'pais','data', 'ano',
