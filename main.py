@@ -53,4 +53,23 @@ with tab_dash:
     df_agrupado_tipo.columns = ['quantidade']
     st.bar_chart(df_agrupado_tipo, use_container_width=True, color=(255, 255, 255, 0.9))
 
+    st.divider()
 
+    # categorias
+
+    categorias = pd.unique(df['categoria'])
+    lista_categorias = set()
+    for linha in categorias:
+        itens = linha.split(', ')
+        for item in itens:
+            lista_categorias.add(item)
+    st.write(lista_categorias)
+
+    contagem_categorias = {}
+    for categoria in lista_categorias:
+        contagem_categorias[categoria] = df['categotia'].str.contains(categoria).sum()
+
+    contagem_categorias['Culture'] = contagem_categorias['and Culture']
+    contagem_categorias.pop('and Culture')
+    st.write(contagem_categorias)
+    st.write()
